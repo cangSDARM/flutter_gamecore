@@ -1,0 +1,71 @@
+{
+  "global": {
+    "button": {
+      "titles": [
+        "首页",
+        "视频",
+        "电台",
+        "文章",
+        "我的"
+      ]
+    }
+  },
+  "home": {
+    "appbar": [
+      "最新",
+      "资讯"
+    ],
+    "actions": [
+      "通知",
+      "搜索"
+    ],
+    "latestpage": {
+      "banner": {
+        "section": "最新资讯",
+        "more": "查看更多资讯 >"
+      }
+    },
+    "newspage": {}
+  },
+  "article": {
+    "appbar": [
+      "文章"
+    ],
+    "actions": [
+      "搜索"
+    ],
+    "page": {
+      "choices": "一周文章精选",
+      "recommendation": {
+        "title": "专题推荐",
+        "more": "查看更多"
+      }
+    }
+  },
+  "mine": {
+    "actions": [
+      "扫描",
+      "设置"
+    ]
+  },
+  "others": {
+    "scanQR": {
+      "title": "扫描二维码"
+    },
+    "search": {
+      "placeholder": "搜索内容或用户"
+    }
+  },
+  "radio": {
+    "title": "电台",
+    "actions": [
+      "搜索"
+    ]
+  },
+  "video": {
+    "title": "视频",
+    "actions": [
+      "搜索"
+    ]
+  }
+}
