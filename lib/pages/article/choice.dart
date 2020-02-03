@@ -7,7 +7,7 @@ class Choice extends StatelessWidget{
     return Container(
       color: Colors.white,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
       child: MaterialButton(
         color: Theme.of(context).buttonColor,
         height: 48,

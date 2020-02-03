@@ -7,7 +7,7 @@ class LatestPage extends StatelessWidget {
       LatestNews(),
       Container(
         width: double.infinity,
-        height: 20,
+        height: 16,
         color: Colors.black12,
       ),
     ];

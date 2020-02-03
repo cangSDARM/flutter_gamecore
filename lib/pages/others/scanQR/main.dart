@@ -7,7 +7,7 @@ class QRPage extends StatelessWidget{
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.getI18nText(context, "others/scanQR/title")),
+          title: Text(AppLocalizations.getI18nText(context, "others/scanQR/appbar/0")),
         ),
         body: Container(
           child: Text("Finish this --scanQR/QRPage"),

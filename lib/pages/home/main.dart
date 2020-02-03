@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/pages/home/latest_page.dart';
+import 'package:flutter_app/pages/others/notice/main.dart';
 import '../others/serach/main.dart';
 import 'package:flutter_app/pages/home/news_page.dart';
 import 'package:flutter_app/Config/localizations.dart';
@@ -60,7 +61,10 @@ class _HomePageState extends State<HomePage> {
         IconButton(
             icon: Icon(Icons.lightbulb_outline),
             tooltip: AppLocalizations.getI18nText(context, "home/actions/0"),
-            onPressed: () => debugPrint("TODO: 通知")),
+            onPressed: () {
+              Notice.navigateToNotice(context);
+            }
+        ),
         IconButton(
           icon: Icon(Icons.search),
           tooltip: AppLocalizations.getI18nText(context, "home/actions/1"),
@@ -69,7 +73,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ]),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: HomeContainer(pageController: this._pageController, swipe: swipe),
     );
   }

@@ -8,6 +8,11 @@
         "文章",
         "我的"
       ]
+    },
+    "components": {
+      "recommendation": {
+        "more": "查看更多"
+      }
     }
   },
   "home": {
@@ -35,11 +40,10 @@
       "搜索"
     ],
     "page": {
-      "choices": "一周文章精选",
-      "recommendation": {
-        "title": "专题推荐",
-        "more": "查看更多"
-      }
+      "choices": "一周文章精选"
+    },
+    "recommendation": {
+        "title": "专题推荐"
     }
   },
   "mine": {
@@ -50,20 +54,27 @@
   },
   "others": {
     "scanQR": {
-      "title": "扫描二维码"
+      "appbar": ["扫描二维码"]
     },
     "search": {
       "placeholder": "搜索内容或用户"
+    },
+    "notice": {
+      "appbar": ["通知", "动态", "私信"],
+      "actions": ["设置"]
     }
   },
   "radio": {
-    "title": "电台",
+    "appbar": ["电台"],
     "actions": [
       "搜索"
-    ]
+    ],
+    "recommendation": {
+        "title": "播单推荐"
+    }
   },
   "video": {
-    "title": "视频",
+    "appbar": ["视频"],
     "actions": [
       "搜索"
     ]

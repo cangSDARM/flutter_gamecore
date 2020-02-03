@@ -5,7 +5,7 @@ final ThemeData theme = new ThemeData(
   scaffoldBackgroundColor: Colors.red,
   accentColor: Colors.blueGrey,
   highlightColor: Colors.red[500],
-  backgroundColor: Colors.grey[300],
+  backgroundColor: Colors.white,
   splashColor: Colors.grey,
   buttonColor: Colors.white30,
   textTheme: TextTheme(
@@ -19,8 +19,8 @@ final ThemeData theme = new ThemeData(
       fontSize: 22,
       fontWeight: FontWeight.w400,
     ),
-    caption: TextStyle(
-      fontSize: 20,
+    caption: TextStyle( //推荐
+      fontSize: 18,
       color: Colors.black
     ),
     headline: TextStyle(
