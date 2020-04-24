@@ -20,10 +20,11 @@
       "最新",
       "资讯"
     ],
-    "actions": [
-      "通知",
-      "搜索"
-    ],
+    "actions": {
+      "discounts": "降价消息",
+      "notifications": "通知",
+      "searchs": "搜索"
+    },
     "latestpage": {
       "banner": {
         "section": "最新资讯",
@@ -62,6 +63,12 @@
     "notice": {
       "appbar": ["通知", "动态", "私信"],
       "actions": ["设置"]
+    },
+    "discounts": {
+      "appbar": {
+        "discounts": "游戏折扣",
+        "comingSoon": "即将发售"
+      }
     }
   },
   "radio": {

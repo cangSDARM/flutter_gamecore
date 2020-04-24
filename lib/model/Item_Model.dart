@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 
-enum ItemType{
-  latest,
-  news,
-  gadio
-}
+enum ItemType { latest, news, gadio }
 
-abstract class ItemProto{
+abstract class ItemProto {
   double height = 80;
   List<TextSpan> createTimeOut(String releaseString);
+
   ///description: Gadio Life|0|132
   Widget createBottomInfo(String description);
   List<double> itemSize(List<double> standardSize);
   ItemType get type;
 }
 
-class LatestItem extends ItemProto{
+class LatestItem extends ItemProto {
   @override
   Widget createBottomInfo(String description) {
     return Text("");
@@ -25,19 +22,18 @@ class LatestItem extends ItemProto{
   List<TextSpan> createTimeOut(String releaseString) {
     return [
       TextSpan(
-        text: releaseString,
-        style: TextStyle(
-          fontSize: 13.0,
-          fontWeight: FontWeight.normal,
-          color: Colors.grey,
-        )
-      )
+          text: releaseString,
+          style: TextStyle(
+            fontSize: 13.0,
+            fontWeight: FontWeight.normal,
+            color: Colors.grey,
+          ))
     ];
   }
 
   @override
-  List<double> itemSize(List<double> standardSize){
-    List<double> s = standardSize.map((each)=>each*0.8).toList();
+  List<double> itemSize(List<double> standardSize) {
+    List<double> s = standardSize.map((each) => each * 0.8).toList();
     this.height *= 0.8;
     return s;
   }
@@ -45,8 +41,8 @@ class LatestItem extends ItemProto{
   @override
   ItemType get type => ItemType.latest;
 }
-class NewsItem extends ItemProto{
 
+class NewsItem extends ItemProto {
   @override
   Widget createBottomInfo(String description) {
     List<String> desc = description.split('|');
@@ -69,15 +65,15 @@ class NewsItem extends ItemProto{
   }
 
   @override
-  List<double> itemSize(List<double> standardSize){
+  List<double> itemSize(List<double> standardSize) {
     return standardSize;
   }
 
   @override
   ItemType get type => ItemType.news;
 }
-class GadioItem extends ItemProto{
 
+class GadioItem extends ItemProto {
   @override
   Widget createBottomInfo(String description) {
     List<String> desc = description.split('|');
@@ -86,20 +82,18 @@ class GadioItem extends ItemProto{
 
     return RichText(
       text: TextSpan(
-        text: desc[0],
-        style: TextStyle(
-          fontSize: 14.0,
-          color: Colors.red,
-        ),
-        children: <TextSpan>[
-          TextSpan(
-            text: "  ${desc[1]}评论",
-            style: TextStyle(
-              color: Colors.grey,
-            )
-          )
-        ]
-      ),
+          text: desc[0],
+          style: TextStyle(
+            fontSize: 14.0,
+            color: Colors.red,
+          ),
+          children: <TextSpan>[
+            TextSpan(
+                text: "  ${desc[1]}评论",
+                style: TextStyle(
+                  color: Colors.grey,
+                ))
+          ]),
     );
   }
 
@@ -110,9 +104,9 @@ class GadioItem extends ItemProto{
   }
 
   @override
-  List<double> itemSize(List<double> standardSize){
+  List<double> itemSize(List<double> standardSize) {
     this.height *= 0.9;
-    return standardSize.map((each)=>height).toList();
+    return standardSize.map((each) => height).toList();
   }
 
   @override
@@ -120,8 +114,15 @@ class GadioItem extends ItemProto{
 }
 
 class ItemData {
-  ItemData(this.title, {@required this.imageSrc, this.releaseTime, this.description="", this.reviewNum = 0, this.loveNum = 0})
-    :assert(title != null), assert(releaseTime.isBefore(DateTime.now())), assert(reviewNum >= 0), assert(loveNum >= 0);
+  ItemData(this.title,
+      {@required this.imageSrc,
+      this.releaseTime,
+      this.description = "",
+      this.reviewNum = 0,
+      this.loveNum = 0})
+      : assert(title != null),
+        assert(reviewNum >= 0),
+        assert(loveNum >= 0);
 
   final String imageSrc;
   final String title;

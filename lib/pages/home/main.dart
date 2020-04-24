@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/component/HTMLElement_a.dart';
-import 'package:flutter_app/component/AppBars.dart';
-import 'package:flutter_app/pages/home/latest_page.dart';
-import 'package:flutter_app/pages/others/notice/main.dart';
-import '../others/serach/main.dart';
-import 'package:flutter_app/pages/home/news_page.dart';
 import 'package:flutter_app/Config/localizations.dart';
+import 'package:flutter_app/component/AppBars.dart';
+import 'package:flutter_app/component/HTMLElement_a.dart';
+import 'package:flutter_app/pages/home/latest/main.dart';
+import 'package:flutter_app/pages/home/news_page.dart';
+import 'package:flutter_app/pages/others/discounts/main.dart';
+import 'package:flutter_app/pages/others/notice/main.dart';
+import 'package:flutter_app/pages/others/serach/main.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key});
@@ -26,11 +27,13 @@ class _HomePageState extends State<HomePage> {
     });
 
     _pageController.animateToPage(this._curIndex,
-        duration: new Duration(seconds: 2), curve: new ElasticOutCurve(0.8));
+        duration: new Duration(milliseconds: 500
+        ), curve: Curves.ease
+    );
   }
 
-  TextStyle switchTheme(int i, BuildContext context){
-    if(this._curIndex == i)
+  TextStyle switchTheme(int i, BuildContext context) {
+    if (this._curIndex == i)
       return Theme.of(context).textTheme.title;
     else
       return Theme.of(context).textTheme.subtitle;
@@ -47,27 +50,47 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Appbar(titleBuilder: <Tag_a>[
-        Tag_a(
+      appBar: Appbar(titleBuilder: <ElementA>[
+        ElementA(
           //fake a 标签
           onTap: () => {this.swipe(0)},
-          innerText: Text(AppLocalizations.getI18nText(context, "home/appbar/0"), style: this.switchTheme(0, context)),
+          data: "home/appbar/0",
+          style: this.switchTheme(0, context
+          ),
         ),
-        Tag_a(
+        ElementA(
           onTap: () => {this.swipe(1)},
-          innerText: Text(AppLocalizations.getI18nText(context, "home/appbar/1"), style: this.switchTheme(1, context)),
+            data: "home/appbar/1",
+            style: this.switchTheme(1, context
+            )
         ),
       ], actions: <IconButton>[
         IconButton(
-            icon: Icon(Icons.lightbulb_outline),
-            tooltip: AppLocalizations.getI18nText(context, "home/actions/0"),
+          icon: Icon(Icons.adjust
+          ),
+          tooltip:
+          AppLocalizations.getI18nText(context, "home/actions/discounts"
+          ),
+          onPressed: () {
+            Discounts.navigateToDiscounts(context
+            );
+          },
+        ),
+        IconButton(
+            icon: Icon(Icons.lightbulb_outline
+            ),
+            tooltip: AppLocalizations.getI18nText(
+                context, "home/actions/notifications"
+            ),
             onPressed: () {
               Notice.navigateToNotice(context);
             }
         ),
         IconButton(
           icon: Icon(Icons.search),
-          tooltip: AppLocalizations.getI18nText(context, "home/actions/1"),
+          tooltip:
+          AppLocalizations.getI18nText(context, "home/actions/searchs"
+          ),
           onPressed: () {
             SearchPage.navigateToSearch(context);
           },

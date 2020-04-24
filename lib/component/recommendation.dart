@@ -18,11 +18,12 @@ class Recommendation extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(this.title, style: Theme.of(context).textTheme.caption),
-                Tag_a(
-                    innerText: Text(
+                ElementA(
+                    data:
                         AppLocalizations.getI18nText(
                             context, "global/components/recommendation/more"),
-                        style: TextStyle(fontSize: 16)),
+                    style: TextStyle(fontSize: 16
+                    ),
                     onTap: this.onMore)
               ],
             ),

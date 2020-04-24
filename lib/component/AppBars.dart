@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'HTMLElement_a.dart';
+
+import './HTMLElement_a.dart';
 
 class Appbar extends AppBar {
   Appbar(
       {Key key,
-      List<Tag_a> titleBuilder,
+      List<ElementA> titleBuilder,
       Text titleNormal,
       Color backgroundColor = Colors.red,
       double elevation,
-      @required List<IconButton> actions})
+      List<IconButton> actions})
       : assert((titleNormal != null) || (titleBuilder != null)),
         super(
           title: titleNormal == null
@@ -22,7 +23,7 @@ class Appbar extends AppBar {
           elevation: elevation,
         );
 
-  static List<Container> _buildMargin(List<Tag_a> list) {
+  static List<Container> _buildMargin(List<ElementA> list) {
     return list
         .asMap()
         .values

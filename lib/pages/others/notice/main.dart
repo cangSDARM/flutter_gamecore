@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Config/localizations.dart';
-import 'package:flutter_app/component/HTMLElement_a.dart';
 import 'package:flutter_app/component/AppBars.dart';
+import 'package:flutter_app/component/HTMLElement_a.dart';
 import 'package:flutter_app/pages/others/notice/communication_page.dart';
 import 'package:flutter_app/pages/others/notice/dynamic_page.dart';
 import 'package:flutter_app/pages/others/notice/notice_page.dart';
@@ -49,25 +49,25 @@ class _Notice extends State<Notice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Appbar(
-        titleBuilder: <Tag_a>[
-          Tag_a(
+        titleBuilder: <ElementA>[
+          ElementA(
             //fake a 标签
             onTap: () => {this.swipe(0)},
-            innerText: Text(
-                AppLocalizations.getI18nText(context, "others/notice/appbar/0"),
-                style: this.switchTheme(0, context)),
+            data: "others/notice/appbar/0",
+            style: this.switchTheme(0, context
+            ),
           ),
-          Tag_a(
+          ElementA(
             onTap: () => {this.swipe(1)},
-            innerText: Text(
-                AppLocalizations.getI18nText(context, "others/notice/appbar/1"),
-                style: this.switchTheme(1, context)),
+            data: "others/notice/appbar/1",
+            style: this.switchTheme(1, context
+            ),
           ),
-          Tag_a(
+          ElementA(
             onTap: () => {this.swipe(2)},
-            innerText: Text(
-                AppLocalizations.getI18nText(context, "others/notice/appbar/2"),
-                style: this.switchTheme(2, context)),
+            data: "others/notice/appbar/2",
+            style: this.switchTheme(2, context
+            ),
           ),
         ],
         actions: [

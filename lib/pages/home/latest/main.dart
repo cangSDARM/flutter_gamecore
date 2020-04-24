@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/home/latest_banner.dart';
+import 'package:flutter_app/pages/home/latest/banner.dart';
 
 class LatestPage extends StatelessWidget {
   List<Widget> get lists {
@@ -7,8 +7,8 @@ class LatestPage extends StatelessWidget {
       LatestNews(),
       Container(
         width: double.infinity,
-        height: 16,
-        color: Colors.black12,
+        height: 10,
+        color: Colors.white24,
       ),
     ];
   }
