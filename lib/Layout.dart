@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'component/BottomBars.dart';
 import 'model/Pages_model.dart';
 
@@ -18,7 +19,7 @@ class _LayoutState extends State<Layout> {
 
   int currentPage;
 
-  void _changePage(int index){
+  void _changePage(int index) {
     this.setState(() {
       this.currentPage = index;
     });
@@ -29,11 +30,7 @@ class _LayoutState extends State<Layout> {
     return Scaffold(
       body: bottomItems[this.currentPage].page,
       backgroundColor: Colors.grey[300],
-      bottomNavigationBar: BottomBars(
-        index:this.currentPage,
-        onTap:this._changePage
-      ),
+      bottomNavigationBar: BottomBars(index: this.currentPage, onTap: this._changePage),
     );
   }
-
 }

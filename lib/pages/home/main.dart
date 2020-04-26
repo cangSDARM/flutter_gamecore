@@ -26,10 +26,7 @@ class _HomePageState extends State<HomePage> {
       this._curIndex = i;
     });
 
-    _pageController.animateToPage(this._curIndex,
-        duration: new Duration(milliseconds: 500
-        ), curve: Curves.ease
-    );
+    _pageController.animateToPage(this._curIndex, duration: new Duration(milliseconds: 500), curve: Curves.ease);
   }
 
   TextStyle switchTheme(int i, BuildContext context) {
@@ -55,42 +52,26 @@ class _HomePageState extends State<HomePage> {
           //fake a 标签
           onTap: () => {this.swipe(0)},
           data: "home/appbar/0",
-          style: this.switchTheme(0, context
-          ),
+          style: this.switchTheme(0, context),
         ),
-        ElementA(
-          onTap: () => {this.swipe(1)},
-            data: "home/appbar/1",
-            style: this.switchTheme(1, context
-            )
-        ),
+        ElementA(onTap: () => {this.swipe(1)}, data: "home/appbar/1", style: this.switchTheme(1, context)),
       ], actions: <IconButton>[
         IconButton(
-          icon: Icon(Icons.adjust
-          ),
-          tooltip:
-          AppLocalizations.getI18nText(context, "home/actions/discounts"
-          ),
+          icon: Icon(Icons.adjust),
+          tooltip: AppLocalizations.getI18nText(context, "home/actions/discounts"),
           onPressed: () {
-            Discounts.navigateToDiscounts(context
-            );
+            Discounts.navigateToDiscounts(context);
           },
         ),
         IconButton(
-            icon: Icon(Icons.lightbulb_outline
-            ),
-            tooltip: AppLocalizations.getI18nText(
-                context, "home/actions/notifications"
-            ),
+            icon: Icon(Icons.lightbulb_outline),
+            tooltip: AppLocalizations.getI18nText(context, "home/actions/notifications"),
             onPressed: () {
               Notice.navigateToNotice(context);
-            }
-        ),
+            }),
         IconButton(
           icon: Icon(Icons.search),
-          tooltip:
-          AppLocalizations.getI18nText(context, "home/actions/searchs"
-          ),
+          tooltip: AppLocalizations.getI18nText(context, "home/actions/searchs"),
           onPressed: () {
             SearchPage.navigateToSearch(context);
           },

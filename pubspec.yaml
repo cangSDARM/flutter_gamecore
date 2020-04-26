@@ -15,6 +15,7 @@ dependencies:
   provider: ^3.1.0+1
   bubble_bottom_bar: ^1.2.0
   loader_search_bar: ^1.0.3+3
+  flutter_svg: ^0.17.4
 
 dev_dependencies:
   flutter_test:
