@@ -1,23 +1,26 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
-import '../others/serach/main.dart';
-import 'package:flutter_app/component/recommendation.dart';
 import 'package:flutter_app/component/article.dart';
+import 'package:flutter_app/component/recommendation.dart';
+
+import '../others/serach/main.dart';
 
 class VideoPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Appbar(
-        titleNormal: Text(AppLocalizations.getI18nText(context, "video/appbar/0"), style: Theme.of(context).textTheme.title),
-        actions: <IconButton>[
-          IconButton(
+        titleNormal:
+            Text(AppLocalizations.getI18nText(context, "video/appbar/0"), style: Theme.of(context).textTheme.title),
+        actions: <AppActions>[
+          AppActions(
             icon: Icon(Icons.search),
-            tooltip: AppLocalizations.getI18nText(context, "video/actions/0"),
-            onPressed: (){
+            context: context,
+            tooltip: "video/actions/0",
+            onPressed: () {
               SearchPage.navigateToSearch(context);
             },
           ),
@@ -31,7 +34,7 @@ class VideoPage extends StatelessWidget {
 
 class _VideoContainer extends StatelessWidget {
   _VideoContainer({Key key});
-  
+
   List<Widget> buildRecommendationItems(BuildContext context) {
     List<Widget> list = [];
     for (var i = 0; i < 10; i++) {
@@ -77,10 +80,7 @@ class _VideoContainer extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 6.0),
           child: Recommendation(items: this.buildRecommendationItems(context)),
         ),
-        Article(
-          title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界",
-          intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影"
-        )
+        Article(title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界", intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影")
       ],
     );
   }

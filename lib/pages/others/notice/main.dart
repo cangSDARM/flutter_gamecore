@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
@@ -26,8 +27,7 @@ class _Notice extends State<Notice> {
       this._curIndex = i;
     });
 
-    _pageController.animateToPage(this._curIndex,
-        duration: new Duration(seconds: 2), curve: new ElasticOutCurve(0.8));
+    _pageController.animateToPage(this._curIndex, duration: new Duration(seconds: 2), curve: new ElasticOutCurve(0.8));
   }
 
   TextStyle switchTheme(int i, BuildContext context) {
@@ -54,27 +54,24 @@ class _Notice extends State<Notice> {
             //fake a 标签
             onTap: () => {this.swipe(0)},
             data: "others/notice/appbar/0",
-            style: this.switchTheme(0, context
-            ),
+            style: this.switchTheme(0, context),
           ),
           ElementA(
             onTap: () => {this.swipe(1)},
             data: "others/notice/appbar/1",
-            style: this.switchTheme(1, context
-            ),
+            style: this.switchTheme(1, context),
           ),
           ElementA(
             onTap: () => {this.swipe(2)},
             data: "others/notice/appbar/2",
-            style: this.switchTheme(2, context
-            ),
+            style: this.switchTheme(2, context),
           ),
         ],
         actions: [
           IconButton(
-            icon: Icon(Icons.security),
+            icon: Icon(Icons.sliders),
             tooltip: AppLocalizations.getI18nText(context, "others/notice/actions/0"),
-            onPressed: ()=>debugPrint("TODO: 通知页的设置项"),
+            onPressed: () => debugPrint("TODO: 通知页的设置项"),
           )
         ],
       ),
@@ -82,10 +79,9 @@ class _Notice extends State<Notice> {
       backgroundColor: Theme.of(context).backgroundColor,
     );
   }
-
 }
 
-class NoticeContainer extends StatelessWidget{
+class NoticeContainer extends StatelessWidget {
   NoticeContainer({Key key, @required this.pageController, @required this.swipe});
 
   final PageController pageController;

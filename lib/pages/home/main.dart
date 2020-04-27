@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_app/Config/localizations.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
 import 'package:flutter_app/pages/home/latest/main.dart';
@@ -55,23 +55,26 @@ class _HomePageState extends State<HomePage> {
           style: this.switchTheme(0, context),
         ),
         ElementA(onTap: () => {this.swipe(1)}, data: "home/appbar/1", style: this.switchTheme(1, context)),
-      ], actions: <IconButton>[
-        IconButton(
-          icon: Icon(Icons.adjust),
-          tooltip: AppLocalizations.getI18nText(context, "home/actions/discounts"),
+      ], actions: <AppActions>[
+        AppActions(
+          icon: Icon(Icons.wallet),
+          context: context,
+          tooltip: "home/actions/discounts",
           onPressed: () {
             Discounts.navigateToDiscounts(context);
           },
         ),
-        IconButton(
-            icon: Icon(Icons.lightbulb_outline),
-            tooltip: AppLocalizations.getI18nText(context, "home/actions/notifications"),
+        AppActions(
+            icon: Icon(Icons.bell_alt),
+            context: context,
+            tooltip: "home/actions/notifications",
             onPressed: () {
               Notice.navigateToNotice(context);
             }),
-        IconButton(
+        AppActions(
           icon: Icon(Icons.search),
-          tooltip: AppLocalizations.getI18nText(context, "home/actions/searchs"),
+          context: context,
+          tooltip: "home/actions/searchs",
           onPressed: () {
             SearchPage.navigateToSearch(context);
           },

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart' hide Icons;
-import 'package:flutter_app/Config/localizations.dart';
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
-import 'package:flutter_app/icons.dart';
 import 'package:flutter_app/model/Sets_Model.dart';
 import 'package:flutter_app/pages/mine/heading.dart';
 import 'package:flutter_app/pages/mine/subpages.dart';
@@ -22,19 +21,19 @@ class MinePage extends StatelessWidget {
               height: 80,
               child: Appbar(
                 titleNormal: Text(""),
-                actions: <IconButton>[
-                  IconButton(
-                    color: Colors.black,
+                actions: <AppActions>[
+                  AppActions(
                     icon: Icon(Icons.qrcode),
-                    tooltip: AppLocalizations.getI18nText(context, "mine/actions/0"),
+                    context: context,
+                    tooltip: "mine/actions/0",
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (_) => QRPage()));
                     },
                   ),
-                  IconButton(
-                    color: Colors.black,
+                  AppActions(
                     icon: Icon(Icons.settings),
-                    tooltip: AppLocalizations.getI18nText(context, "mine/actions/0"),
+                    context: context,
+                    tooltip: "mine/actions/0",
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (_) => Sets(sets: setsList),

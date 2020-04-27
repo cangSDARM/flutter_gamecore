@@ -1,24 +1,26 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
-import '../others/serach/main.dart';
+
 import './choice.dart';
-import '../../component/recommendation.dart';
 import '../../component/article.dart';
+import '../../component/recommendation.dart';
+import '../others/serach/main.dart';
 
 class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Appbar(
-        titleNormal: Text(
-            AppLocalizations.getI18nText(context, "article/appbar/0"),
-            style: Theme.of(context).textTheme.title),
-        actions: <IconButton>[
-          IconButton(
+        titleNormal:
+            Text(AppLocalizations.getI18nText(context, "article/appbar/0"), style: Theme.of(context).textTheme.title),
+        actions: <AppActions>[
+          AppActions(
             icon: Icon(Icons.search),
-            tooltip: AppLocalizations.getI18nText(context, "article/actions/0"),
+            context: context,
+            tooltip: "article/actions/0",
             onPressed: () {
               SearchPage.navigateToSearch(context);
             },
@@ -40,20 +42,15 @@ class _ArticleContainer extends StatelessWidget {
       children: <Widget>[
         Choice(),
         Recommendation(
-          title: AppLocalizations.getI18nText(
-              context, "article/recommendation/title"),
-          onMore: () {
-            debugPrint("TODO: 查看更多");
-          },
-          items: buildRecommendationItems(context)
-        ),
-        Article(
-            title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界",
-            intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影")
+            title: AppLocalizations.getI18nText(context, "article/recommendation/title"),
+            onMore: () {
+              debugPrint("TODO: 查看更多");
+            },
+            items: buildRecommendationItems(context)),
+        Article(title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界", intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影")
       ],
     );
   }
-
 
   //TODO: 生成推荐
   List<Widget> buildRecommendationItems(BuildContext context) {

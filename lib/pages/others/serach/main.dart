@@ -8,13 +8,12 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       appBar: SearchBar(
         defaultBar: AppBar(),
-        searchHint:
-            AppLocalizations.getI18nText(context, "others/search/placeholder"),
+        searchHint: AppLocalizations.getI18nText(context, "others/search/placeholder"),
         iconified: false,
         attrs: SearchBarAttrs(
           searchInputMargin: EdgeInsets.all(0),
-          statusBarColor: Theme.of(context).primaryColor,
-          searchBarColor: Theme.of(context).primaryColor,
+          statusBarColor: Theme.of(context).appBarTheme.color,
+          searchBarColor: Theme.of(context).appBarTheme.color,
           textBoxOutlineRadius: 6,
           textBoxOutlineWidth: 0,
         ),

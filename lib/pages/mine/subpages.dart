@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
+import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/pages/mine/tags.dart';
 
 class SubPages extends StatelessWidget {
@@ -6,31 +8,31 @@ class SubPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tags(items: <Widget>[
       SubPage(
-        title: "下载管理",
-        icon: Icons.file_download,
+        title: AppLocalizations.of(context).getText("mine/subpage/downloadManager"),
+        icon: Icons.download,
         onTap: () {
           debugPrint('debug');
         },
         color: Colors.green,
       ),
       SubPage(
-        title: "我的订阅",
-        icon: Icons.add_circle,
+        title: AppLocalizations.of(context).getText("mine/subpage/subscription"),
+        icon: Icons.plus_circled,
         onTap: () {
           debugPrint('debug');
         },
       ),
       SubPage(
-        title: "我的收藏",
-        icon: Icons.flag,
+        title: AppLocalizations.of(context).getText("mine/subpage/bookmark"),
+        icon: Icons.bookmark,
         onTap: () {
           debugPrint('debug');
         },
         color: Colors.orange,
       ),
       SubPage(
-        title: "历史记录",
-        icon: Icons.access_time,
+        title: AppLocalizations.of(context).getText("mine/subpage/history"),
+        icon: Icons.clock,
         onTap: () {
           debugPrint('debug');
         },

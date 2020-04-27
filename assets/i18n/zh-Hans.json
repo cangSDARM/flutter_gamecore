@@ -44,25 +44,39 @@
       "choices": "一周文章精选"
     },
     "recommendation": {
-        "title": "专题推荐"
+      "title": "专题推荐"
     }
   },
   "mine": {
     "actions": [
       "扫描",
       "设置"
-    ]
+    ],
+    "subpage": {
+      "downloadManager": "下载管理",
+      "subscription": "我的订阅",
+      "bookmark": "我的收藏",
+      "history": "历史记录"
+    }
   },
   "others": {
     "scanQR": {
-      "appbar": ["扫描二维码"]
+      "appbar": [
+        "扫描二维码"
+      ]
     },
     "search": {
       "placeholder": "搜索内容或用户"
     },
     "notice": {
-      "appbar": ["通知", "动态", "私信"],
-      "actions": ["设置"]
+      "appbar": [
+        "通知",
+        "动态",
+        "私信"
+      ],
+      "actions": [
+        "设置"
+      ]
     },
     "discounts": {
       "appbar": {
@@ -72,16 +86,20 @@
     }
   },
   "radio": {
-    "appbar": ["电台"],
+    "appbar": [
+      "电台"
+    ],
     "actions": [
       "搜索"
     ],
     "recommendation": {
-        "title": "播单推荐"
+      "title": "播单推荐"
     }
   },
   "video": {
-    "appbar": ["视频"],
+    "appbar": [
+      "视频"
+    ],
     "actions": [
       "搜索"
     ]

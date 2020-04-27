@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Config/localizations.dart';
 
 import './HTMLElement_a.dart';
 
+// ignore: must_be_immutable
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
   Appbar({Key key, List<ElementA> titleBuilder, Text titleNormal, List<IconButton> actions})
       : assert((titleNormal != null) || (titleBuilder != null)),
@@ -47,6 +49,15 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   final Size preferredSize;
 }
 
+class AppActions extends IconButton {
+  AppActions(
+      {Key key, @required Icon icon, @required VoidCallback onPressed, @required BuildContext context, String tooltip})
+      : super(
+            icon: icon,
+            tooltip: AppLocalizations.getI18nText(context, tooltip),
+            onPressed: onPressed,
+            color: Colors.black87);
+}
 //
 //class Appbar extends AppBar {
 //  Appbar(
