@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' hide Icons;
 import 'package:flutter_app/Config/icons.dart';
-import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
 import 'package:flutter_app/pages/others/notice/communication_page.dart';
@@ -68,9 +67,9 @@ class _Notice extends State<Notice> {
           ),
         ],
         actions: [
-          IconButton(
-            icon: Icon(Icons.sliders),
-            tooltip: AppLocalizations.getI18nText(context, "others/notice/actions/0"),
+          AppActions(
+            icon: Icons.sliders,
+            tooltip: "others/notice/actions/0",
             onPressed: () => debugPrint("TODO: 通知页的设置项"),
           )
         ],

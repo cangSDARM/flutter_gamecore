@@ -56,24 +56,15 @@ class _HomePageState extends State<HomePage> {
         ),
         ElementA(onTap: () => {this.swipe(1)}, data: "home/appbar/1", style: this.switchTheme(1, context)),
       ], actions: <AppActions>[
+        Discounts.showButton(context),
         AppActions(
-          icon: Icon(Icons.wallet),
-          context: context,
-          tooltip: "home/actions/discounts",
-          onPressed: () {
-            Discounts.navigateToDiscounts(context);
-          },
-        ),
-        AppActions(
-            icon: Icon(Icons.bell_alt),
-            context: context,
+            icon: Icons.bell_alt,
             tooltip: "home/actions/notifications",
             onPressed: () {
               Notice.navigateToNotice(context);
             }),
         AppActions(
-          icon: Icon(Icons.search),
-          context: context,
+          icon: Icons.search,
           tooltip: "home/actions/searchs",
           onPressed: () {
             SearchPage.navigateToSearch(context);

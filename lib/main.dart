@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart'; //Material Design样式库
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-//import 'package:flutter/cupertino.dart';  //IOS样式库
-//import 'package:flutter/widgets.dart';    //基础样式库
 import 'package:provider/provider.dart';
-import 'store/debug.dart';
 
 import 'Config/localizations.dart';
 import 'Config/theme.dart';
+import 'Layout.dart';
 import 'global.dart';
 import 'loading.dart';
-import 'Layout.dart';
+import 'store/debug.dart';
 
 void main() async {
   try {
@@ -25,8 +22,8 @@ void main() async {
   runApp(Provider(
     builder: (_) => new Debug(),
     child: MyApp(),
-    dispose: (context, _) => print(
-        "disposed"), //当 Provider 所在节点被移除的时候，它就会启动 Disposer<T>，然后便可以在这里释放资源
+    dispose: (context, _) => print("disposed"),
+    create: (BuildContext context) {}, //当 Provider 所在节点被移除的时候，它就会启动 Disposer<T>，然后便可以在这里释放资源
   ));
 
   /**

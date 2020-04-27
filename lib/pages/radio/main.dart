@@ -19,8 +19,7 @@ class RadioPage extends StatelessWidget {
             Text(AppLocalizations.getI18nText(context, "radio/appbar/0"), style: Theme.of(context).textTheme.title),
         actions: <AppActions>[
           AppActions(
-            icon: Icon(Icons.search),
-            context: context,
+            icon: Icons.search,
             tooltip: "radio/actions/0",
             onPressed: () {
               SearchPage.navigateToSearch(context);

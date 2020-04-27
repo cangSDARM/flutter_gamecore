@@ -1,16 +1,28 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
+import 'package:flutter_app/component/IconButtons.dart';
 
 import './coming_soon.dart';
 import './discounts.dart';
 
-class Discounts extends StatefulWidget {
+class Discounts extends NavigateIButton {
   @override
   _Discounts createState() => _Discounts();
 
-  static void navigateToDiscounts(BuildContext context) {
+  static void navigateTo(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) => Discounts()));
+  }
+
+  static AppActions showButton(BuildContext context) {
+    return AppActions(
+      icon: Icons.wallet,
+      tooltip: "home/actions/discounts",
+      onPressed: () {
+        Discounts.navigateTo(context);
+      },
+    );
   }
 }
 

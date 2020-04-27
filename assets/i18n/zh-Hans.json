@@ -12,7 +12,8 @@
     "components": {
       "recommendation": {
         "more": "查看更多"
-      }
+      },
+      "returnTip": "返回上一级"
     }
   },
   "home": {

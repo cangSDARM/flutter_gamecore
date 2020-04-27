@@ -23,16 +23,14 @@ class MinePage extends StatelessWidget {
                 titleNormal: Text(""),
                 actions: <AppActions>[
                   AppActions(
-                    icon: Icon(Icons.qrcode),
-                    context: context,
+                    icon: Icons.qrcode,
                     tooltip: "mine/actions/0",
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (_) => QRPage()));
                     },
                   ),
                   AppActions(
-                    icon: Icon(Icons.settings),
-                    context: context,
+                    icon: Icons.settings,
                     tooltip: "mine/actions/0",
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(

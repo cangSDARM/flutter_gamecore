@@ -1,32 +1,33 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Icons;
+import 'package:flutter/services.dart';
+import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/Config/localizations.dart';
+import 'package:flutter_app/component/IconButtons.dart';
 
 import './HTMLElement_a.dart';
 
-// ignore: must_be_immutable
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
-  Appbar({Key key, List<ElementA> titleBuilder, Text titleNormal, List<IconButton> actions})
+  Appbar({Key key, this.titleBuilder = const [], this.titleNormal, this.actions = const [], this.leading = false})
       : assert((titleNormal != null) || (titleBuilder != null)),
-        preferredSize = Size.fromHeight(kToolbarHeight) {
-    this.titleBuilder = titleBuilder;
-    this.titleNormal = titleNormal;
-    this.actions = actions;
-  }
+        preferredSize = Size.fromHeight(kToolbarHeight);
 
-  List<ElementA> titleBuilder;
-  Text titleNormal;
-  List<IconButton> actions;
+  final bool leading;
+  final List<ElementA> titleBuilder;
+  final Widget titleNormal;
+  final List<AppActions> actions;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: titleNormal == null
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: _buildMargin(titleBuilder),
+      leading: Navigator.canPop(context)
+          ? IButton(
+              icon: Icons.help_circled,
+              onPressed: () => Navigator.of(context).pop(),
             )
-          : titleNormal,
-      actions: actions,
+          : null,
+      titleSpacing: 0.0,
+      title: _buildTitle(titleNormal, titleBuilder, context),
+      actions: _buildMargin(actions, marginRight: 8),
       backgroundColor: Theme.of(context).appBarTheme.color,
       elevation: Theme.of(context).appBarTheme.elevation,
       brightness: Theme.of(context).brightness,
@@ -34,12 +35,37 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  static List<Container> _buildMargin(List<ElementA> list) {
+  static Widget _buildTitle(Widget titleNormal, List<Widget> title, BuildContext context) {
+    dynamic titles = [
+      Container(
+        margin: EdgeInsets.only(left: 16),
+      )
+    ];
+    titles.addAll(_buildMargin(title));
+
+    titles = titleNormal == null
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: titles,
+          )
+        : titleNormal;
+
+    titles = Navigator.canPop(context)
+        ? Transform.translate(
+            offset: Offset(-15, 0),
+            child: titles,
+          )
+        : titles;
+
+    return titles;
+  }
+
+  static List<Container> _buildMargin(List<Widget> list, {double marginRight = 12.0}) {
     return list
         .asMap()
         .values
         .map((e) => Container(
-              margin: EdgeInsets.only(right: 12.0),
+              margin: EdgeInsets.only(right: marginRight),
               child: e,
             ))
         .toList();
@@ -49,15 +75,67 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   final Size preferredSize;
 }
 
-class AppActions extends IconButton {
-  AppActions(
-      {Key key, @required Icon icon, @required VoidCallback onPressed, @required BuildContext context, String tooltip})
-      : super(
-            icon: icon,
-            tooltip: AppLocalizations.getI18nText(context, tooltip),
-            onPressed: onPressed,
-            color: Colors.black87);
+class AppActions extends IButton {
+  AppActions({Key key, @required IconData icon, @required VoidCallback onPressed, String tooltip})
+      : super(icon: icon, tooltip: tooltip, onPressed: onPressed, color: Colors.black87);
 }
+
+class SearchBar extends StatelessWidget implements PreferredSizeWidget {
+  SearchBar({Key key}) : preferredSize = Size.fromHeight(kToolbarHeight);
+
+  final String placeholder = "others/search/placeholder";
+
+  void popPage(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  Widget buildTextField(BuildContext context, String hintText) {
+    final TextEditingController controller = new TextEditingController();
+    return TextField(
+      decoration: InputDecoration(
+        fillColor: Colors.black.withAlpha(20),
+        filled: true,
+        contentPadding: EdgeInsets.all(0),
+        prefixIcon: Icon(Icons.search, color: Theme.of(context).cursorColor),
+        hintText: hintText,
+        border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(5)),
+      ),
+      controller: controller,
+      style: TextStyle(fontSize: 15),
+      maxLines: 1,
+      cursorColor: Theme.of(context).cursorColor,
+      autofocus: true,
+      textAlign: TextAlign.left,
+      onSubmitted: submitListener,
+      keyboardType: TextInputType.text,
+    );
+  }
+
+  void submitListener(String text) {
+    print('submited $text');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Appbar(
+      titleNormal: Row(
+        children: <Widget>[
+          Flexible(
+            child: Container(
+              height: 60,
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+              child: buildTextField(context, AppLocalizations.getI18nText(context, this.placeholder)),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  final Size preferredSize;
+}
+
 //
 //class Appbar extends AppBar {
 //  Appbar(

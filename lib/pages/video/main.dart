@@ -17,8 +17,7 @@ class VideoPage extends StatelessWidget {
             Text(AppLocalizations.getI18nText(context, "video/appbar/0"), style: Theme.of(context).textTheme.title),
         actions: <AppActions>[
           AppActions(
-            icon: Icon(Icons.search),
-            context: context,
+            icon: Icons.search,
             tooltip: "video/actions/0",
             onPressed: () {
               SearchPage.navigateToSearch(context);

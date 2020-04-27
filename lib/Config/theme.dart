@@ -10,12 +10,8 @@ final ThemeData theme = new ThemeData(
   splashColor: Colors.grey,
   buttonColor: Colors.white30,
   brightness: Brightness.light,
-  appBarTheme: AppBarTheme(
-      color: Colors.white,
-      elevation: 0,
-      iconTheme: IconThemeData(
-        color: Colors.black,
-      )),
+  cursorColor: Colors.black.withAlpha(50),
+  appBarTheme: AppBarTheme(color: Colors.white, elevation: 0, iconTheme: IconThemeData(color: Colors.black87)),
   textTheme: TextTheme(
       title: TextStyle(
         color: Colors.black87,
@@ -28,7 +24,7 @@ final ThemeData theme = new ThemeData(
         fontWeight: FontWeight.w500,
       ),
       caption: TextStyle(
-          //推荐
+//推荐
           fontSize: 18,
           color: Colors.black),
       headline: TextStyle(color: Colors.red[600], fontSize: 14, fontWeight: FontWeight.w500)),
