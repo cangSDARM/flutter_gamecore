@@ -49,7 +49,7 @@ class Newest extends StatelessWidget {
         ),
       ),
       Text(desc,
-          style: TextStyle(color: Colors.black54),
+          style: TextStyle(color: Colors.black54, fontSize: 14.0),
           overflow: TextOverflow.ellipsis)
     ];
   }

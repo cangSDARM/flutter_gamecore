@@ -7,12 +7,6 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "4dffe5e59760395857c5e7cbf7e2d20a",
-      "css": "search",
-      "code": 59392,
-      "src": "material"
-    },
-    {
       "uid": "671f29fa10dda08074a4c6a341bb4f39",
       "css": "bell-alt",
       "code": 61683,
@@ -29,12 +23,6 @@
       "css": "qrcode",
       "code": 59394,
       "src": "fontawesome"
-    },
-    {
-      "uid": "b2270284ed38dffa576900a69b320faa",
-      "css": "settings",
-      "code": 59393,
-      "src": "material"
     },
     {
       "uid": "4ba33d2607902cf690dd45df09774cb0",
@@ -73,15 +61,69 @@
       "src": "fontawesome"
     },
     {
-      "uid": "a4cbef22bb105b753b1812bb4dbb954b",
-      "css": "star",
-      "code": 59400,
-      "src": "material"
-    },
-    {
       "uid": "1bafeeb1808a5fe24484c7890096901a",
       "css": "user-plus",
       "code": 62004,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59401,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
+      "css": "search",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d73eceadda1f594cec0536087539afbf",
+      "css": "heart",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "12f4ece88e46abd864e40b35e05b11cd",
+      "css": "ok",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "474656633f79ea2f1dad59ff63f6bf07",
+      "css": "star",
+      "code": 59400,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e99461abfef3923546da8d745372c995",
+      "css": "settings",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "code": 59404,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "107ce08c7231097c7447d8f4d059b55f",
+      "css": "ellipsis",
+      "code": 61761,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "644ca39fd6e170085849c7a19c695550",
+      "css": "center_focus",
+      "code": 59406,
+      "src": "material"
+    },
+    {
+      "uid": "4ffd8122933b9ee0183b925e1554969f",
+      "css": "circle-notch",
+      "code": 61902,
       "src": "fontawesome"
     }
   ]

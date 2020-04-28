@@ -10,6 +10,7 @@ class IButton extends StatelessWidget {
       this.highlightColor = Colors.transparent,
       this.splashColor = Colors.transparent,
       this.width = 30,
+      this.iconSize = 24,
       this.tooltip = "",
       this.margin = const EdgeInsets.symmetric(horizontal: 2)});
 
@@ -21,6 +22,7 @@ class IButton extends StatelessWidget {
   final Color color;
   final Color highlightColor;
   final Color splashColor;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class IButton extends StatelessWidget {
         alignment: Alignment.center,
         child: IconButton(
           icon: Icon(this.icon),
+          iconSize: this.iconSize,
           color: this.color,
           highlightColor: this.highlightColor,
           splashColor: this.splashColor,

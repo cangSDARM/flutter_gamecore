@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
+import 'package:flutter_app/component/Headings.dart';
 
 class Recommendation extends StatelessWidget {
   Recommendation({Key key, this.title, this.onMore, @required this.items})
@@ -10,23 +10,23 @@ class Recommendation extends StatelessWidget {
   final VoidCallback onMore;
   final List<Widget> items;
 
-  Padding createHeader(BuildContext context) {
+  Widget createHeader(BuildContext context) {
     return this.title != null
-        ? Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(this.title, style: Theme.of(context).textTheme.caption),
-                ElementA(
-                    data:
-                        AppLocalizations.getI18nText(
-                            context, "global/components/recommendation/more"),
-                    style: TextStyle(fontSize: 16
-                    ),
-                    onTap: this.onMore)
-              ],
-            ),
+        ? HeadingLine(
+            outerPadding: EdgeInsets.only(left: 12.0, right: 12.0, bottom: 5),
+            leftWidget: <Widget>[
+              Text(this.title, style: Theme.of(context).textTheme.caption),
+            ],
+            rightWidget: ElementA(
+                data: "global/components/recommendation/more",
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context)
+                        .textTheme
+                        .caption
+                        .color
+                        .withAlpha(160)),
+                onTap: this.onMore),
           )
         : Padding(padding: EdgeInsets.symmetric(horizontal: 12.0));
   }

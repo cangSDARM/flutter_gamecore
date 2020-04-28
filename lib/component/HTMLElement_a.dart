@@ -7,36 +7,26 @@ class ElementA extends StatelessWidget {
     Key key,
     @required this.data,
     @required this.onTap,
-    TextStyle style,
-    GestureTapCallback onDoubleTap,
-    GestureLongPressCallback onLongPress,
-    GestureTapDownCallback onTapDown,
-    GestureTapCancelCallback onTapCancel,
-    ValueChanged<bool> onHighlightChanged,
-    ValueChanged<bool> onHover,
-    bool i18n = false,
-  }) {
-    this.onDoubleTap = onDoubleTap;
-    this.onLongPress = onLongPress;
-    this.onTapDown = onTapDown;
-    this.onTapCancel = onTapCancel;
-    this.onHighlightChanged = onHighlightChanged;
-    this.onHover = onHover;
-    this.style = style;
-    this.i18n = i18n;
-  }
+    this.style,
+    this.onDoubleTap,
+    this.onLongPress,
+    this.onTapDown,
+    this.onTapCancel,
+    this.onHighlightChanged,
+    this.onHover,
+    this.i18n = true,
+  });
 
   final String data;
   final GestureTapCallback onTap;
-
-  TextStyle style;
-  bool i18n;
-  GestureTapCallback onDoubleTap;
-  GestureLongPressCallback onLongPress;
-  GestureTapDownCallback onTapDown;
-  GestureTapCancelCallback onTapCancel;
-  ValueChanged<bool> onHighlightChanged;
-  ValueChanged<bool> onHover;
+  final TextStyle style;
+  final bool i18n;
+  final GestureTapCallback onDoubleTap;
+  final GestureLongPressCallback onLongPress;
+  final GestureTapDownCallback onTapDown;
+  final GestureTapCancelCallback onTapCancel;
+  final ValueChanged<bool> onHighlightChanged;
+  final ValueChanged<bool> onHover;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +40,9 @@ class ElementA extends StatelessWidget {
         onHighlightChanged: onHighlightChanged,
         onHover: onHover,
         child: Text(
-          AppLocalizations.getI18nText(context, this.data),
+          this.i18n
+              ? AppLocalizations.getI18nText(context, this.data)
+              : this.data,
           style: this.style,
         ),
         splashColor: Colors.transparent);

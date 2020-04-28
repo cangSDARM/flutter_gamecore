@@ -7,11 +7,18 @@ import 'package:flutter_app/component/IconButtons.dart';
 import './HTMLElement_a.dart';
 
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
-  Appbar({Key key, this.titleBuilder = const [], this.titleNormal, this.actions = const [], this.leading = false})
+  Appbar(
+      {Key key,
+      this.titleBuilder = const [],
+      this.titleNormal,
+      this.actions = const [],
+      this.leading = false,
+      this.transparent = false})
       : assert((titleNormal != null) || (titleBuilder != null)),
         preferredSize = Size.fromHeight(kToolbarHeight);
 
   final bool leading;
+  final bool transparent;
   final List<ElementA> titleBuilder;
   final Widget titleNormal;
   final List<AppActions> actions;
@@ -21,14 +28,15 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: Navigator.canPop(context)
           ? IButton(
-              icon: Icons.help_circled,
+              iconSize: 20,
+              icon: Icons.left_open,
               onPressed: () => Navigator.of(context).pop(),
             )
           : null,
       titleSpacing: 0.0,
       title: _buildTitle(titleNormal, titleBuilder, context),
       actions: _buildMargin(actions, marginRight: 8),
-      backgroundColor: Theme.of(context).appBarTheme.color,
+      backgroundColor: this.transparent ? Colors.white.withAlpha(150) : Theme.of(context).appBarTheme.color,
       elevation: Theme.of(context).appBarTheme.elevation,
       brightness: Theme.of(context).brightness,
       iconTheme: Theme.of(context).appBarTheme.iconTheme,
@@ -96,7 +104,11 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
         fillColor: Colors.black.withAlpha(20),
         filled: true,
         contentPadding: EdgeInsets.all(0),
-        prefixIcon: Icon(Icons.search, color: Theme.of(context).cursorColor),
+        prefixIcon: Icon(
+          Icons.search,
+          color: Theme.of(context).cursorColor,
+          size: 18,
+        ),
         hintText: hintText,
         border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(5)),
       ),
@@ -136,6 +148,18 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   final Size preferredSize;
 }
 
+class AppTextTitle extends StatelessWidget {
+  AppTextTitle(this.title, {Key key, this.i18n = true});
+
+  final String title;
+  final bool i18n;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(this.i18n ? AppLocalizations.getI18nText(context, this.title) : this.title,
+        style: Theme.of(context).textTheme.title);
+  }
+}
 //
 //class Appbar extends AppBar {
 //  Appbar(

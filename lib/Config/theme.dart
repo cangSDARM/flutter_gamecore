@@ -8,7 +8,7 @@ final ThemeData theme = new ThemeData(
   highlightColor: Colors.red[500],
   backgroundColor: Colors.white,
   splashColor: Colors.grey,
-  buttonColor: Colors.white30,
+  buttonColor: Color.fromARGB(255, 240, 240, 240),
   brightness: Brightness.light,
   cursorColor: Colors.black.withAlpha(50),
   appBarTheme: AppBarTheme(color: Colors.white, elevation: 0, iconTheme: IconThemeData(color: Colors.black87)),

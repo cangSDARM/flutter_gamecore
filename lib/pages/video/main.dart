@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart' hide Icons;
 import 'package:flutter_app/Config/icons.dart';
-import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/AppBars.dart';
+import 'package:flutter_app/component/Article.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
-import 'package:flutter_app/component/article.dart';
 import 'package:flutter_app/component/recommendation.dart';
 
 import '../others/serach/main.dart';
@@ -13,8 +12,7 @@ class VideoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Appbar(
-        titleNormal:
-            Text(AppLocalizations.getI18nText(context, "video/appbar/0"), style: Theme.of(context).textTheme.title),
+        titleNormal: AppTextTitle("video/appbar/0"),
         actions: <AppActions>[
           AppActions(
             icon: Icons.search,
@@ -79,7 +77,9 @@ class _VideoContainer extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 6.0),
           child: Recommendation(items: this.buildRecommendationItems(context)),
         ),
-        Article(title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界", intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影")
+        Article(
+            title: "泰坦尼克号建造记录(完结):乘客们的故事与我的纸中世界",
+            intro: "泰坦尼克号不仅仅是一条船, 它是当时那个时代的缩影")
       ],
     );
   }

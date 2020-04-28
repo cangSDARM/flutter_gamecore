@@ -12,14 +12,14 @@
 ///       - asset: fonts/Icons.ttf
 ///
 /// 
-/// * Material Design Icons, Copyright (C) Google, Inc
-///         Author:    Google
-///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-///         Homepage:  https://design.google.com/icons/
 /// * Font Awesome, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL ()
 ///         Homepage:  http://fortawesome.github.com/Font-Awesome/
+/// * Material Design Icons, Copyright (C) Google, Inc
+///         Author:    Google
+///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+///         Homepage:  https://design.google.com/icons/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -38,8 +38,15 @@ class Icons {
   static const IconData clock = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData help_circled = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData star = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData left_open = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ok = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData right_open = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData center_focus = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData wallet = IconData(0xf008, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bell_alt = IconData(0xf0f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ellipsis = IconData(0xf141, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData circle_notch = IconData(0xf1ce, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sliders = IconData(0xf1de, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user_plus = IconData(0xf234, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

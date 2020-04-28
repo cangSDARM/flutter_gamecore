@@ -84,6 +84,11 @@
         "discounts": "游戏折扣",
         "comingSoon": "即将发售"
       }
+    },
+    "specialTopic": {
+      "appbar": [
+        "全部专题"
+      ]
     }
   },
   "radio": {
