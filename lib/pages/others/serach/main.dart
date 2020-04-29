@@ -7,7 +7,7 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       appBar: SearchBar(),
       body: Center(
-        child: Text("TODO"),
+        child: Text("TODO, hotsport"),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
     );

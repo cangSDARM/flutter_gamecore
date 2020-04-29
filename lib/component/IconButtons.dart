@@ -42,13 +42,58 @@ class IButton extends StatelessWidget {
   }
 }
 
-abstract class NavigateIButton extends StatefulWidget {
-  static void navigateTo(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed("app");
+class IAvatarButton extends StatelessWidget {
+  IAvatarButton(
+      {Key key,
+      @required this.title,
+      @required this.onTap,
+      this.iconColor = Colors.blue,
+      this.fontSize = 12,
+      this.iconSize = 35,
+      this.textColor,
+      this.icon,
+      this.child});
+
+  final Color iconColor;
+  final IconData icon;
+  final String title;
+  final GestureTapCallback onTap;
+  final double fontSize;
+  final double iconSize;
+  final Widget child; //TODO: switch it to a image
+  final Color textColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Column(children: buildItems(context)),
+        _buildInk(context),
+      ],
+    );
   }
 
-  //TODO: Dart can't override static function, please replace it to another way.
-  static IButton showButton(BuildContext context) {
-    return null;
+  List<Widget> buildItems(BuildContext context) {
+    return <Widget>[
+      this.child ?? Icon(this.icon, color: this.iconColor, size: this.iconSize),
+      Padding(
+          padding: EdgeInsets.only(top: 6),
+          child: Text(
+            AppLocalizations.getI18nText(context, this.title),
+            style: TextStyle(
+                fontSize: this.fontSize,
+                color: this.textColor ?? Colors.grey[500]),
+          ))
+    ];
+  }
+
+  /// 用于跳转
+  Widget _buildInk(BuildContext context) {
+    return Positioned.fill(
+        child: InkWell(
+      onTap: onTap,
+      splashColor: Theme.of(context).splashColor.withOpacity(0.0),
+      highlightColor: Theme.of(context).splashColor.withOpacity(0.0),
+    ));
   }
 }

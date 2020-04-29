@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/component/AppBars.dart';
+import 'package:flutter_app/component/Texts.dart';
 
 class QRPage extends StatelessWidget {
   @override
@@ -9,7 +10,7 @@ class QRPage extends StatelessWidget {
         titleNormal: AppTextTitle("others/scanQR/appbar/0"),
       ),
       body: Center(
-        child: Text("Finish this --scanQR/QRPage"),
+        child: EmptyText(title: "others/scanQR/empty"),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
     );

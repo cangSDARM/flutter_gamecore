@@ -52,16 +52,11 @@
     "actions": [
       "扫描",
       "设置"
-    ],
-    "subpage": {
-      "downloadManager": "下载管理",
-      "subscription": "我的订阅",
-      "bookmark": "我的收藏",
-      "history": "历史记录"
-    }
+    ]
   },
   "others": {
     "scanQR": {
+      "empty": "Finish this",
       "appbar": [
         "扫描二维码"
       ]
@@ -77,6 +72,11 @@
       ],
       "actions": [
         "设置"
+      ],
+      "empty": [
+        "没有通知消息",
+        "没有动态消息",
+        "没有私信消息"
       ]
     },
     "discounts": {
@@ -89,6 +89,49 @@
       "appbar": [
         "全部专题"
       ]
+    },
+    "gadio": {
+      "appbar": [
+        "电台详情"
+      ]
+    },
+    "download": {
+      "appbar": [
+        "下载管理"
+      ],
+      "empty": "还没有下载任何内容",
+      "actions": "选择"
+    },
+    "subscription": {
+      "empty": "没有订阅任何内容",
+      "appbar": [
+        "我的订阅"
+      ]
+    },
+    "bookmark": {
+      "appbar": [
+        "我的收藏"
+      ],
+      "empty": "还没有收藏任何内容"
+    },
+    "history": {
+      "appbar": [
+        "浏览历史"
+      ],
+      "empty": "还没有浏览任何内容",
+      "actions": "全部清除"
+    },
+    "followers": {
+      "appbar": [
+        "被关注"
+      ],
+      "empty": "还没有被用户关注"
+    },
+    "following": {
+      "appbar": [
+        "已关注"
+      ],
+      "empty": "还没有关注用户"
     }
   },
   "radio": {

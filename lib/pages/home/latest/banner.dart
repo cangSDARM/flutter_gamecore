@@ -24,11 +24,15 @@ class LatestNews extends StatelessWidget {
             ],
           ),
         ),
-        Section(
-          AppLocalizations.getI18nText(
-              context, "home/latestpage/banner/section"),
-          typo: ItemType.latest,
-          itemCount: 3,
+        Padding(
+          padding:
+              const EdgeInsets.only(top: 0, right: 14, bottom: 6, left: 14),
+          child: Section(
+            AppLocalizations.getI18nText(
+                context, "home/latestpage/banner/section"),
+            proto: LatestItem(),
+            itemCount: 3,
+          ),
         ),
         Container(
           width: double.infinity,

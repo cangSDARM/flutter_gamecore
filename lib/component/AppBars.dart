@@ -21,7 +21,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   final bool transparent;
   final List<ElementA> titleBuilder;
   final Widget titleNormal;
-  final List<AppActions> actions;
+  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +36,17 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0.0,
       title: _buildTitle(titleNormal, titleBuilder, context),
       actions: _buildMargin(actions, marginRight: 8),
-      backgroundColor: this.transparent ? Colors.white.withAlpha(150) : Theme.of(context).appBarTheme.color,
+      backgroundColor: this.transparent
+          ? Colors.white.withAlpha(150)
+          : Theme.of(context).appBarTheme.color,
       elevation: Theme.of(context).appBarTheme.elevation,
       brightness: Theme.of(context).brightness,
       iconTheme: Theme.of(context).appBarTheme.iconTheme,
     );
   }
 
-  static Widget _buildTitle(Widget titleNormal, List<Widget> title, BuildContext context) {
+  static Widget _buildTitle(
+      Widget titleNormal, List<Widget> title, BuildContext context) {
     dynamic titles = [
       Container(
         margin: EdgeInsets.only(left: 16),
@@ -68,7 +71,8 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     return titles;
   }
 
-  static List<Container> _buildMargin(List<Widget> list, {double marginRight = 12.0}) {
+  static List<Container> _buildMargin(List<Widget> list,
+      {double marginRight = 12.0}) {
     return list
         .asMap()
         .values
@@ -84,8 +88,16 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class AppActions extends IButton {
-  AppActions({Key key, @required IconData icon, @required VoidCallback onPressed, String tooltip})
-      : super(icon: icon, tooltip: tooltip, onPressed: onPressed, color: Colors.black87);
+  AppActions(
+      {Key key,
+      @required IconData icon,
+      @required VoidCallback onPressed,
+      String tooltip})
+      : super(
+            icon: icon,
+            tooltip: tooltip,
+            onPressed: onPressed,
+            color: Colors.black87);
 }
 
 class SearchBar extends StatelessWidget implements PreferredSizeWidget {
@@ -110,7 +122,9 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
           size: 18,
         ),
         hintText: hintText,
-        border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(5)),
+        border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(5)),
       ),
       controller: controller,
       style: TextStyle(fontSize: 15),
@@ -136,7 +150,8 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
             child: Container(
               height: 60,
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-              child: buildTextField(context, AppLocalizations.getI18nText(context, this.placeholder)),
+              child: buildTextField(context,
+                  AppLocalizations.getI18nText(context, this.placeholder)),
             ),
           )
         ],
@@ -156,7 +171,10 @@ class AppTextTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(this.i18n ? AppLocalizations.getI18nText(context, this.title) : this.title,
+    return Text(
+        this.i18n
+            ? AppLocalizations.getI18nText(context, this.title)
+            : this.title,
         style: Theme.of(context).textTheme.title);
   }
 }

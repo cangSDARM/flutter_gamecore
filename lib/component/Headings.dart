@@ -21,7 +21,7 @@ class HeadingLine extends StatelessWidget {
   Widget _buildRow(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Row(crossAxisAlignment: this.leftAlignment, children: this.leftWidget),
-      this.rightWidget ?? Container()
+      this.rightWidget ?? Container(color: Colors.transparent)
     ]);
   }
 
@@ -29,11 +29,13 @@ class HeadingLine extends StatelessWidget {
     Widget result = _buildRow(context);
     if (this.buttonize != null) {
       result = MaterialButton(
-          elevation: this.buttonize.elevation,
-          color: Theme.of(context).buttonColor,
-          height: this.buttonize.height,
-          child: result,
-          onPressed: this.buttonize.onPressed);
+        elevation: this.buttonize.elevation,
+        color: this.buttonize.color ?? Theme.of(context).buttonColor,
+        height: this.buttonize.height,
+        child: result,
+        onPressed: this.buttonize.onPressed,
+        padding: this.buttonize.padding,
+      );
     }
     return result;
   }
@@ -41,7 +43,7 @@ class HeadingLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        color: Colors.transparent,
         width: double.infinity,
         padding: this.outerPadding,
         child: _buildWrapper(context));

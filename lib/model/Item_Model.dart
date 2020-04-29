@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-enum ItemType { latest, news, gadio }
-
 abstract class ItemProto {
   double height = 80;
+
   List<TextSpan> createTimeOut(String releaseString);
 
   ///description: Gadio Life|0|132
   Widget createBottomInfo(String description);
+
   List<double> itemSize(List<double> standardSize);
-  ItemType get type;
 }
 
 class LatestItem extends ItemProto {
@@ -37,9 +36,6 @@ class LatestItem extends ItemProto {
     this.height *= 0.8;
     return s;
   }
-
-  @override
-  ItemType get type => ItemType.latest;
 }
 
 class NewsItem extends ItemProto {
@@ -68,49 +64,6 @@ class NewsItem extends ItemProto {
   List<double> itemSize(List<double> standardSize) {
     return standardSize;
   }
-
-  @override
-  ItemType get type => ItemType.news;
-}
-
-class GadioItem extends ItemProto {
-  @override
-  Widget createBottomInfo(String description) {
-    List<String> desc = description.split('|');
-
-    assert(desc.length == 3);
-
-    return RichText(
-      text: TextSpan(
-          text: desc[0],
-          style: TextStyle(
-            fontSize: 14.0,
-            color: Colors.red,
-          ),
-          children: <TextSpan>[
-            TextSpan(
-                text: "  ${desc[1]}评论",
-                style: TextStyle(
-                  color: Colors.grey,
-                ))
-          ]),
-    );
-  }
-
-  @override
-  List<TextSpan> createTimeOut(String releaseString) {
-    // TODO: implement _createTimeOut
-    return [];
-  }
-
-  @override
-  List<double> itemSize(List<double> standardSize) {
-    this.height *= 0.9;
-    return standardSize.map((each) => height).toList();
-  }
-
-  @override
-  ItemType get type => ItemType.gadio;
 }
 
 class ItemData {

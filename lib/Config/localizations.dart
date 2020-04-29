@@ -19,14 +19,19 @@ class AppLocalizations {
   }
 
   String getText(String key) {
-    List<String> keys = key.split('/');
-    dynamic value = language;
-    while (keys.isNotEmpty) {
-      String eachKey = keys.removeAt(0);
-      int num = int.tryParse(eachKey) ?? -255;
-      value = value[num > -1 ? num : eachKey] ?? "";
+    try {
+      List<String> keys = key.split('/');
+      dynamic value = language;
+      while (keys.isNotEmpty) {
+        String eachKey = keys.removeAt(0);
+        int num = int.tryParse(eachKey) ?? -255;
+        value = value[num > -1 ? num : eachKey];
+      }
+      return value is String ? value : key;
+    } catch (e) {
+      print(e);
+      return key;
     }
-    return value is String ? value : "NULL";
   }
 }
 
@@ -40,8 +45,10 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    String scriptCode = locale.scriptCode == null ? "" : "-" + locale.scriptCode;
-    String string = await rootBundle.loadString("assets/i18n/${locale.languageCode}$scriptCode.json");
+    String scriptCode =
+        locale.scriptCode == null ? "" : "-" + locale.scriptCode;
+    String string = await rootBundle
+        .loadString("assets/i18n/${locale.languageCode}$scriptCode.json");
     language = json.decode(string);
     return SynchronousFuture<AppLocalizations>(AppLocalizations());
   }

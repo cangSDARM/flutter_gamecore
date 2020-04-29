@@ -2,12 +2,11 @@ import 'package:flutter/material.dart' hide Icons;
 import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
-import 'package:flutter_app/component/IconButtons.dart';
 
 import './coming_soon.dart';
 import './discounts.dart';
 
-class Discounts extends NavigateIButton {
+class Discounts extends StatefulWidget {
   @override
   _Discounts createState() => _Discounts();
 
@@ -37,7 +36,8 @@ class _Discounts extends State<Discounts> {
       this._curIndex = i;
     });
 
-    _pageController.animateToPage(this._curIndex, duration: new Duration(seconds: 2), curve: new ElasticOutCurve(0.8));
+    _pageController.animateToPage(this._curIndex,
+        duration: new Duration(seconds: 2), curve: new ElasticOutCurve(0.8));
   }
 
   TextStyle switchTheme(int i, BuildContext context) {
@@ -73,14 +73,16 @@ class _Discounts extends State<Discounts> {
           ),
         ],
       ),
-      body: DiscountsContainer(pageController: this._pageController, swipe: swipe),
+      body: DiscountsContainer(
+          pageController: this._pageController, swipe: swipe),
       backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 }
 
 class DiscountsContainer extends StatelessWidget {
-  DiscountsContainer({Key key, @required this.pageController, @required this.swipe});
+  DiscountsContainer(
+      {Key key, @required this.pageController, @required this.swipe});
 
   final PageController pageController;
   final ValueChanged<int> swipe;

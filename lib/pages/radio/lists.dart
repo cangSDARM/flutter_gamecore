@@ -4,6 +4,7 @@ import 'package:flutter_app/component/CardWrapper.dart';
 import 'package:flutter_app/component/Headings.dart';
 import 'package:flutter_app/component/IconButtons.dart';
 import 'package:flutter_app/component/SectionFooter.dart';
+import 'package:flutter_app/pages/others/gadio/main.dart';
 
 class Lists extends StatelessWidget {
   @override
@@ -76,6 +77,14 @@ class Lists extends StatelessWidget {
         onPressed: () {
           debugPrint("TODO: 完成分享");
         },
+      ),
+      buttonize: MaterialButton(
+        padding: EdgeInsets.only(),
+        onPressed: () {
+          Gadio.navigateTo(context, "https://www.gcores.com/gadio/1012394");
+        },
+        elevation: 0,
+        color: Colors.transparent,
       ),
     );
   }

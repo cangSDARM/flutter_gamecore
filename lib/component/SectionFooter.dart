@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SectionFooter extends StatelessWidget {
-  SectionFooter(
-      {Key key, @required this.theme, this.like = 0, this.comment = 0});
+  SectionFooter({Key key, this.theme = "", this.like = 0, this.comment = 0});
 
   final String theme;
   final int like;
@@ -17,7 +16,8 @@ class SectionFooter extends StatelessWidget {
     TextStyle infoStyle = styleGen(color: Color.fromARGB(255, 120, 120, 120));
 
     return Row(children: [
-      Text("${this.theme}    ", style: styleGen(color: Colors.red[600])),
+      Text(this.theme.isNotEmpty ? "${this.theme}    " : "",
+          style: styleGen(color: Colors.red[600])),
       buildInfo(this.like, Text("${this.like} 喜欢", style: infoStyle)),
       buildInfo(this.comment, Text(" · ", style: infoStyle)),
       buildInfo(

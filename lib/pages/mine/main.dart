@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart' hide Icons;
 import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
+import 'package:flutter_app/component/Texts.dart';
 import 'package:flutter_app/model/Sets_Model.dart';
 import 'package:flutter_app/pages/mine/heading.dart';
 import 'package:flutter_app/pages/mine/subpages.dart';
 import 'package:flutter_app/pages/mine/tags.dart';
+import 'package:flutter_app/pages/others/followers/main.dart';
+import 'package:flutter_app/pages/others/following/main.dart';
 import 'package:flutter_app/pages/others/scanQR/main.dart';
 import 'package:flutter_app/pages/others/settings/main.dart';
 
@@ -60,22 +63,8 @@ class _MineContainer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text("已关注",
-                      style: TextStyle(fontSize: 12, color: Colors.grey[500])),
-                  Text("0", style: TextStyle(fontSize: 18))
-                ],
-              ),
-              Column(
-                children: <Widget>[
-                  Text(
-                    "被关注",
-                    style: TextStyle(fontSize: 12, color: Colors.grey[500]),
-                  ),
-                  Text("0", style: TextStyle(fontSize: 18))
-                ],
-              ),
+              FollowingPage.showButton(context),
+              FollowersPage.showButton(context)
             ],
           ),
         ),
@@ -98,8 +87,7 @@ class _MineContainer extends StatelessWidget {
       Container(
         height: MediaQuery.of(context).size.height * 0.6,
         child: Center(
-          //TODO: style
-          child: Text("尚未发布内容", style: Theme.of(context).textTheme.caption),
+          child: EmptyText(title: "尚未发布内容"),
         ),
       ),
       Center(
