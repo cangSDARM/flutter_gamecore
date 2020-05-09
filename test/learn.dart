@@ -1,4 +1,5 @@
 //-------------------------------------------------------------------------------------------Dart
+// @formatter:off
 
 //import '' as ImporterName;
 /*延时加载, 调用时加载
@@ -18,8 +19,8 @@ abstract class Objects extends Object{
   void say(){ print('abstract'); }
 }
 //mixin. 不同于接口, 这是混合其他的已实现的方法, 使用 with 关键字. (存在重名方法时, 按照先自己后从右至左的方式查找调用第一个)
-class Eat{}
-class Sleep{}
+abstract class Eat{}
+mixin Sleep on Objects{} //^Dart2.1 使用mixin而非abstract, on 表示使用超类的方法
 class Person extends Objects with Eat, Sleep{
 
   //对象字段

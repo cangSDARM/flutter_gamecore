@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/BanerBar.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
-import 'package:flutter_app/component/ItemList.dart';
+import 'package:flutter_app/component/Section.dart';
 import 'package:flutter_app/model/Item_Model.dart';
 
 class LatestNews extends StatelessWidget {

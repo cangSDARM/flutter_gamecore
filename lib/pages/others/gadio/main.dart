@@ -4,7 +4,7 @@ import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
 import 'package:flutter_app/component/Headings.dart';
 import 'package:flutter_app/component/IconButtons.dart';
-import 'package:flutter_app/component/ItemList.dart';
+import 'package:flutter_app/component/Section.dart';
 import 'package:flutter_app/component/Texts.dart';
 import 'package:flutter_app/model/Item_Model.dart';
 

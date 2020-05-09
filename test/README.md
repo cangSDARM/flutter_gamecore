@@ -105,3 +105,4 @@ Flutter和React很相似，都是声明式框架<br/>
 
 ## PS
 1. Flutter 里涉及数字的，都是double类型
+2. android studio check unused: 选中类型 -> 右键find usages -> value read
