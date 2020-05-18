@@ -8,6 +8,7 @@ import 'package:flutter_app/component/Section.dart';
 import 'package:flutter_app/component/Texts.dart';
 import 'package:flutter_app/model/Item_Model.dart';
 
+// TODO: it's so large
 class Gadio extends StatelessWidget {
   Gadio({Key key, @required this.uri});
 
@@ -154,7 +155,6 @@ class _Content extends StatelessWidget {
 class _Banner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return CardWrapper(
       elevation: 1,
       circularRadius: 5,

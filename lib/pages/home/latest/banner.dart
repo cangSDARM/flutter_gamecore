@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Config/localizations.dart';
 import 'package:flutter_app/component/BanerBar.dart';
 import 'package:flutter_app/component/CardWrapper.dart';
+import 'package:flutter_app/component/InheritedContext.dart';
 import 'package:flutter_app/component/Section.dart';
 import 'package:flutter_app/model/Item_Model.dart';
 
@@ -10,6 +11,8 @@ class LatestNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final inheritedContext = InheritedContext.of(context);
+
     return Column(
       children: <Widget>[
         CardWrapper(
@@ -43,7 +46,7 @@ class LatestNews extends StatelessWidget {
                   context, "home/latestpage/banner/more"),
             ),
             onPressed: () {
-              debugPrint("Flat"); //TODO
+              (inheritedContext.data as VoidFunc<int>)(1);
             },
             padding: EdgeInsets.all(0),
             splashColor: Colors.grey,

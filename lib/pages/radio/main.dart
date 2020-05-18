@@ -9,7 +9,7 @@ import 'package:flutter_app/pages/others/serach/main.dart';
 import 'package:flutter_app/pages/others/specialTopic/main.dart';
 
 import './lists.dart';
-import './newest.dart';
+import './newest/main.dart';
 
 class RadioPage extends StatelessWidget {
   @override

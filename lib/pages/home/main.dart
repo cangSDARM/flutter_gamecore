@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide Icons;
 import 'package:flutter_app/Config/icons.dart';
 import 'package:flutter_app/component/AppBars.dart';
 import 'package:flutter_app/component/HTMLElement_a.dart';
+import 'package:flutter_app/component/InheritedContext.dart';
 import 'package:flutter_app/pages/home/latest/main.dart';
 import 'package:flutter_app/pages/home/news_page.dart';
 import 'package:flutter_app/pages/others/discounts/main.dart';
@@ -26,7 +27,8 @@ class _HomePageState extends State<HomePage> {
       this._curIndex = i;
     });
 
-    _pageController.animateToPage(this._curIndex, duration: new Duration(milliseconds: 500), curve: Curves.ease);
+    _pageController.animateToPage(this._curIndex,
+        duration: new Duration(milliseconds: 500), curve: Curves.ease);
   }
 
   TextStyle switchTheme(int i, BuildContext context) {
@@ -46,33 +48,39 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: Appbar(titleBuilder: <ElementA>[
-        ElementA(
-          //fake a 标签
-          onTap: () => {this.swipe(0)},
-          data: "home/appbar/0",
-          style: this.switchTheme(0, context),
-        ),
-        ElementA(onTap: () => {this.swipe(1)}, data: "home/appbar/1", style: this.switchTheme(1, context)),
-      ], actions: <AppActions>[
-        Discounts.showButton(context),
-        AppActions(
-            icon: Icons.bell_alt,
-            tooltip: "home/actions/notifications",
+    return InheritedContext(
+      data: swipe,
+      child: Scaffold(
+        appBar: Appbar(titleBuilder: <ElementA>[
+          ElementA(
+            //fake a 标签
+            onTap: () => {this.swipe(0)},
+            data: "home/appbar/0",
+            style: this.switchTheme(0, context),
+          ),
+          ElementA(
+              onTap: () => {this.swipe(1)},
+              data: "home/appbar/1",
+              style: this.switchTheme(1, context)),
+        ], actions: <AppActions>[
+          Discounts.showButton(context),
+          AppActions(
+              icon: Icons.bell_alt,
+              tooltip: "home/actions/notifications",
+              onPressed: () {
+                Notice.navigateToNotice(context);
+              }),
+          AppActions(
+            icon: Icons.search,
+            tooltip: "home/actions/searchs",
             onPressed: () {
-              Notice.navigateToNotice(context);
-            }),
-        AppActions(
-          icon: Icons.search,
-          tooltip: "home/actions/searchs",
-          onPressed: () {
-            SearchPage.navigateToSearch(context);
-          },
-        ),
-      ]),
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: HomeContainer(pageController: this._pageController, swipe: swipe),
+              SearchPage.navigateToSearch(context);
+            },
+          ),
+        ]),
+        backgroundColor: Theme.of(context).backgroundColor,
+        body: HomeContainer(pageController: this._pageController, swipe: swipe),
+      ),
     );
   }
 }
