@@ -23,7 +23,8 @@ void main() async {
     builder: (_) => new Debug(),
     child: MyApp(),
     dispose: (context, _) => print("disposed"),
-    create: (BuildContext context) {}, //当 Provider 所在节点被移除的时候，它就会启动 Disposer<T>，然后便可以在这里释放资源
+    create: (BuildContext
+        context) {}, //当 Provider 所在节点被移除的时候，它就会启动 Disposer<T>，然后便可以在这里释放资源
   ));
 
   /**
@@ -79,7 +80,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     //build == ReactComponent.render 函数

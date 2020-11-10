@@ -10,7 +10,7 @@ class _Origin {
   final Widget page;
 }
 
-class PageStyle{
+class PageStyle {
   PageStyle({
     this.icon,
     this.activeIcon,
@@ -20,7 +20,7 @@ class PageStyle{
   Icon activeIcon;
 }
 
-class PageMoreInfo{
+class PageMoreInfo {
   PageMoreInfo({
     this.description,
     this.tooltip,
@@ -30,13 +30,13 @@ class PageMoreInfo{
   final String tooltip;
 }
 
-class Page extends _Origin{
+class Page extends _Origin {
   Page({
     @required this.page,
     @required this.title,
     this.style,
     this.info,
-  }):super(title: title, page: page);
+  }) : super(title: title, page: page);
 
   final Widget page;
   final String title;

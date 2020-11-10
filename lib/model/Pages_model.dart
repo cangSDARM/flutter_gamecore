@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import '../Config/pages.dart';
-
+import 'package:flutter/material.dart' hide Page;
+import 'package:flutter_app/pages/article/main.dart';
 //import 'package:flutter_app/model/Item_Model.dart';
 import 'package:flutter_app/pages/home/main.dart';
-import 'package:flutter_app/pages/video/main.dart';
-import 'package:flutter_app/pages/radio/main.dart';
-import 'package:flutter_app/pages/article/main.dart';
 import 'package:flutter_app/pages/mine/main.dart';
+import 'package:flutter_app/pages/radio/main.dart';
+import 'package:flutter_app/pages/video/main.dart';
+
+import '../Config/pages.dart' show PageMoreInfo, PageStyle, Page;
 
 /// Define each basic item of the whole project's menu.
 ///
@@ -16,7 +16,7 @@ import 'package:flutter_app/pages/mine/main.dart';
 ///  * [activeIcon] the item has been activated.
 ///  * [description] the second title.
 ///  * [tooltip] the tooltip for the item.
-class _MenuItem extends Page{
+class _MenuItem extends Page {
   _MenuItem({
     Key key,
     @required this.title,
@@ -25,11 +25,11 @@ class _MenuItem extends Page{
     Icon activeIcon,
     String description,
     String tooltip,
-  }):super(
-    page: page, title: title,
-    style: PageStyle(icon: icon, activeIcon: activeIcon),
-    info: PageMoreInfo(description: description, tooltip: tooltip)
-  );
+  }) : super(
+            page: page,
+            title: title,
+            style: PageStyle(icon: icon, activeIcon: activeIcon),
+            info: PageMoreInfo(description: description, tooltip: tooltip));
 
   final Widget page;
   final String title;
