@@ -99,8 +99,11 @@ MaterialApp(
 ## 和RN比较
 Flutter和React很相似，都是声明式框架<br/>
 > Flutter.runApp(Component()) == React.render(<Component/>, document.getElementById("root"))
+
 > Flutter.Widget == React.Component
+
 > Flutter.StatefulWidget == React.状态式组件
+
 > Flutter.StatelessWidget == React.无状态组件
 
 ## PS
