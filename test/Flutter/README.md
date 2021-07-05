@@ -3,10 +3,10 @@
 ## 官方网址
 
 Dart: [dart.dev](https://dart.dev/guides/language)<br/>
-Dart 中文网：[dart china](https://www.dartcn.com/)<br/>
 Web IDE：[dart pad: the china mirror](https://dartpad.cn)<br/>
 Flutter：[flutter dev](https://flutter.dev/)<br/>
-Flutter 中文网：[flutter china](https://flutterchina.club/docs/)<br/>
+
+## [有用的tips](./UsefulTips.md)
 
 ## 项目结构
 ```markdown
